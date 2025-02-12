@@ -1,0 +1,55 @@
+Generate Certificates Manually (Using OpenSSL)
+If you need a self-signed certificate, follow these steps:
+
+Step 1: Generate a Private Key & Certificate Signing Request (CSR)
+openssl genrsa -out tls.key 2048
+openssl req -new -key tls.key -out tls.csr -subj "/CN=mydomain.com"
+
+Step 2: Generate a Self-Signed Certificate
+openssl x509 -req -in tls.csr -signkey tls.key -out tls.crt -days 365
+
+Step 3: Create a Kubernetes Secret
+kubectl create secret tls my-tls-secret --cert=tls.crt --key=tls.key
+This creates a TLS Secret, which can be used in Ingress or other Kubernetes resources.
+
+=====================
+2 
+
+Generate a CSR Correctly
+If you haven't already, generate the private key and CSR:
+
+openssl genrsa -out server.key 2048
+openssl req -new -key server.key -out server.csr -subj "/CN=my-service.default.svc"
+
+Step 2: Base64 Encode the CSR
+Manually encode it and verify:
+
+cat server.csr | base64 | tr -d '\n'
+Ensure the output is a single-line encoded string.
+
+
+
+🛠️
+ Step 3: Fix Your csr.yml File
+Edit your csr.yml and manually paste the base64-encoded CSR in the request: field:
+
+apiVersion: certificates.k8s.io/v1
+kind: CertificateSigningRequest
+metadata:
+  name: my-service-csr
+spec:
+  request: <BASE64_ENCODED_CSR>  # Replace this with the output from Step 2
+  signerName: kubernetes.io/kube-apiserver-client
+  usages:
+    - digital signature
+    - key encipherment
+    - server auth
+
+Step 4: Apply the CSR
+Now, apply the fixed CSR:
+
+kubectl apply -f csr.yml
+If successful, approve the CSR:
+
+kubectl certificate approve my-service-csr
+
