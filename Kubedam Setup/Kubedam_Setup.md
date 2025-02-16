@@ -17,7 +17,7 @@
 2. **Create VM:** 
   - Create Master VM and Worker VM `Configure on both machine`
   - Go to VirtualBox > Setting > Network > add Network Both VirtualMachine Adapter1 `Bridged Adapter` and Adapter2 `NAT Network` > ok. 
-  - Inside VM open Terminal type `nmtui` > Edit a Connection > edit `wired connection 2` > add IPV4 Configuration > ok. as per below image
+  - Open VM > open Terminal > `nmtui` > Edit a Connection > edit `wired connection 2` > add IPV4 Configuration > ok. as per below image
 
 ![image](https://github.com/user-attachments/assets/2d628e54-4a3c-43b5-aabf-f81854ebc35a)
 ![image](https://github.com/user-attachments/assets/d4d09c31-b5ff-4a1c-8dd4-c4c325550348)    
