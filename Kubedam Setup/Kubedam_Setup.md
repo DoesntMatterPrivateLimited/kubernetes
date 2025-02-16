@@ -4,7 +4,7 @@
 
    - VM
 
-### Create VM (ubuntu 22.04)
+1. ### Create VM (ubuntu 22.04)
 
 **Note:** 
   - Create Master VM and Worker VM
