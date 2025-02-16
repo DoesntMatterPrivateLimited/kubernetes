@@ -7,41 +7,42 @@
    - Worker VM
 
  ### Create VM (ubuntu 22.04)
-
-
+---
 1. **Nat Networking:**
   - Open VirtualBox > go to `tools` > Create > Properties > Apply.
     
    ![Screenshot ](https://i.imgur.com/Icfo9p2.png)
    ![Screenshot ](https://i.imgur.com/Dy71vSv.png)
-
+---
 2. **Create VM:** 
-  - Create Master VM and Worker VM (Configure both machine)
+  - Create Master VM and Worker VM `Configure on both machine`
   - Go to VirtualBox > Setting > Network > add Network Both VirtualMachine Adapter1 `Bridged Adapter` and Adapter2 `NAT Network` > ok. 
-  - Inside VM open Terminal type `nmtui` > Edit a Connection > edit `wired connection 2` > add IPV4 Configuration > ok.
+  - Inside VM open Terminal type `nmtui` > Edit a Connection > edit `wired connection 2` > add IPV4 Configuration > ok. as per below image
 
 ![image](https://github.com/user-attachments/assets/2d628e54-4a3c-43b5-aabf-f81854ebc35a)
 ![image](https://github.com/user-attachments/assets/d4d09c31-b5ff-4a1c-8dd4-c4c325550348)    
 
-Install UFW on master and worker
+---
+Install UFW `Configure on master and worker`
 
 ```shell
 sudo ufw status
 sudo ufw enable
 sudo ufw allow 22
 ```
+---
 ```shell
 sudo apt install openssh-server
+sudo systemctl status sshd
 ```
-```shell
-ssh-keygen
-```
+---
 - take ssh on your local
 
 ```shell
-ssh master@<your_ip_addr>
-ssh worker@<your_ip_addr>
+ssh master@192.168.1.8
+ssh worker@192.168.1.3
 ```
+---
 - add your contaient as per below image
 
 ```shell
@@ -49,7 +50,7 @@ sudo vim /etc/hosts
 ```
 ![image](https://github.com/user-attachments/assets/e5c4bb58-2e90-4c56-a037-7a9a15050281)
 
-
+---
 ### Initial Node Setup
 
 - **Step1: Update cluster:**
