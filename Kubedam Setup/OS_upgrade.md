@@ -1,6 +1,6 @@
 # OS Upgrade Without Application Down
 
-- **step1: Verify Cluster & Workloads:**
+ **step1: Verify Cluster & Workloads:**
   
 - Before starting the upgrade, check the current state of your cluster:
 
