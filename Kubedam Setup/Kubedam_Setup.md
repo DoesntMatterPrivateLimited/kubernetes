@@ -2,14 +2,16 @@
 
 ## Prerequisites:
 
-   - VM
+   - 2 VM
+   - Master VM
+   - Worker VM
 
-1. ### Create VM (ubuntu 22.04)
+ ### Create VM (ubuntu 22.04)
 
 **Note:** 
   - Create Master VM and Worker VM
   - Go to VirtualBox > Setting > Network > add Network Both VirtualMachine Adapter1 `NAT Network` and Adapter2 `Bridged Adapter` > ok.
-  - 
+  - Inside VM open Terminal type `nmtui` > Edit a Connection > 
   -  
 
 
