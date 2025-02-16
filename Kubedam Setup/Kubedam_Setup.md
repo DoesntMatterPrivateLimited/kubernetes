@@ -20,12 +20,20 @@
   - Go to VirtualBox > Setting > Network > add Network Both VirtualMachine Adapter1 `NAT Network` and Adapter2 `Bridged Adapter` > ok.
   - Inside VM open Terminal type `nmtui` > Edit a Connection > edit `wired connection 2` > add IPV4 Configuration > ok.
 
-Install UFW
+Install UFW on master and worker
 
 ```shell
 sudo ufw status
 sudo ufw enable
 sudo ufw allow 22
 ```
+```shell
+sudo apt install openssh-server
+```
+- take ssh on your local
 
+```shell
+ssh master@<your_ip_addr>
+ssh worker@<your_ip_addr>
+```
 
