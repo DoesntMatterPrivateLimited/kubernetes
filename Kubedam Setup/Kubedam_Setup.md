@@ -11,6 +11,7 @@
 
 1. **Nat Networking:**
   - Open VirtualBox > go to `tools` > Create > Properties >
+    
    ![Screenshot ](https://i.imgur.com/Icfo9p2.png)
    ![Screenshot ](https://i.imgur.com/Dy71vSv.png)
 **Note:** 
