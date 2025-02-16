@@ -56,7 +56,13 @@ sudo apt-get update
 ```
 ---
 
+- **Step 2: Disable Swap**
 
+```
+sudo swapoff -a
+sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+```
+---
 
 
 
