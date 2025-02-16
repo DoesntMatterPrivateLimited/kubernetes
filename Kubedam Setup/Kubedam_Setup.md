@@ -30,6 +30,9 @@ sudo ufw allow 22
 ```shell
 sudo apt install openssh-server
 ```
+```shell
+ssh-keygen
+```
 - take ssh on your local
 
 ```shell
