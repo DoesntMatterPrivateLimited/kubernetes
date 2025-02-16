@@ -90,6 +90,65 @@ sudo sysctl --system
 ```
 
 ---
+### Containerd Runtime Setup and Configuration
+
+`apt install curl -y`
+
+```
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmour -o /etc/apt/trusted.gpg.d/docker.gpg
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+```
+```
+sudo apt update
+```
+
+```
+sudo apt install -y containerd.io
+```
+```
+containerd config default | sudo tee /etc/containerd/config.toml >/dev/null 2>&1
+```
+```
+sudo sed -i 's/SystemdCgroup \= false/SystemdCgroup \= true/g' /etc/containerd/config.toml
+```
+```
+sudo systemctl restart containerd
+sudo systemctl enable containerd
+systemctl status containerd
+```
+---
+### Installing Kubeadm, Kubelet, and Kubectl
+
+```
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+```
+```
+sudo mkdir -p /etc/apt/keyrings/
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+```
+```
+sudo apt-get update
+apt-cache policy kubelet | head -n 20
+```
+
+> Install the required packages, if needed we can request specific version
+
+```
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+```
+
+**check status of the container** 
+
+`sudo systemctl status kubelet.service`
+
+`sudo systemctl status containerd.service`
+
+> with no cluster configuration yet, kubelet will be crash looping. Bootstraping a cluster will help solve this 
+
+---
 
 
 
