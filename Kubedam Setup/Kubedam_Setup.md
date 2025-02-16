@@ -47,6 +47,15 @@ sudo vim /etc/hosts
 ![image](https://github.com/user-attachments/assets/a1be78ff-b56d-4304-9279-b5d441a77f69)
 
 
+### Initial Node Setup
+
+- **Step1: Update cluster:**
+
+```
+sudo apt-get update
+```
+---
+
 
 
 
