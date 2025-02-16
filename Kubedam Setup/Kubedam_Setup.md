@@ -12,6 +12,7 @@
 1. **Nat Networking:**
   - Open VirtualBox > go to `tools` > Create > Properties >
    ![Screenshot ](https://i.imgur.com/Icfo9p2.png)
+   ![Screenshot ](https://i.imgur.com/Dy71vSv.png)
 **Note:** 
   - Create Master VM and Worker VM
   - Go to VirtualBox > Setting > Network > add Network Both VirtualMachine Adapter1 `NAT Network` and Adapter2 `Bridged Adapter` > ok.
