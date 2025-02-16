@@ -17,7 +17,7 @@
 
 2. **Create VM:** 
   - Create Master VM and Worker VM
-  - Go to VirtualBox > Setting > Network > add Network Both VirtualMachine Adapter1 `NAT Network` and Adapter2 `Bridged Adapter` > ok.
+  - Go to VirtualBox > Setting > Network > add Network Both VirtualMachine Adapter1 `Bridged Adapter` and Adapter2 `NAT Network` > ok. 
   - Inside VM open Terminal type `nmtui` > Edit a Connection > edit `wired connection 2` > add IPV4 Configuration > ok.
 
 Install UFW on master and worker
