@@ -44,7 +44,7 @@ ssh worker@<your_ip_addr>
 ```shell
 sudo vim /etc/hosts
 ```
-![image](https://github.com/user-attachments/assets/a1be78ff-b56d-4304-9279-b5d441a77f69)
+![image](https://github.com/user-attachments/assets/e5c4bb58-2e90-4c56-a037-7a9a15050281)
 
 
 ### Initial Node Setup
