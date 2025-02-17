@@ -183,6 +183,7 @@ EOF
 ### Initializing the Kubernetes Cluster
 
 `sudo kubeadm init --config=ClusterConfiguration.yaml`
+
 ---
 
 ```shell
