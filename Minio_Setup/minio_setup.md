@@ -183,7 +183,14 @@ kubectl get svc -n minio
 kubectl get pvc -n minio
 kubectl get pv
 ```
+---
 
+**step8: Access MinIO:**
+- MinIO API: `http://<NodeIP>:30090`
+- MinIO Console: `http://<NodeIP>:30091`
+- Login Credentials:
+- Username: `minioadmin`
+- Password: `minioadmin`
 
 
 
