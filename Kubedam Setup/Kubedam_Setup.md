@@ -210,6 +210,13 @@ Deploy yaml file for your pod network
 ```
 kubectl apply -f calico.yaml
 ```
+---
+
+### If Token Expired, Create a New One
+
+```shell
+kubeadm token create --print-join-command
+```
 
 ---
 ### Joining Nodes to the Cluster
