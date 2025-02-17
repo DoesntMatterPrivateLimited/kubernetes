@@ -183,6 +183,32 @@ EOF
 ### Initializing the Kubernetes Cluster
 
 `sudo kubeadm init --config=ClusterConfiguration.yaml`
+---
+
+```shell
+sudo ufw allow 6443
+sudo ufw reload
+```
+---
+
+### Accessing Your Cluster
+
+> To start using your cluster, you need to run the following as a regular user:
+
+```
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
+```
+> Note: CoreDNS will always remain pending until the pod network is up. It essentially has no network to exist on until then
+---
+
+### Pod Network Setup
+
+Deploy yaml file for your pod network
+```
+kubectl apply -f calico.yaml
+```
 
 ---
 ### Joining Nodes to the Cluster
@@ -193,26 +219,8 @@ After initializing (bootstrapping) the cluster with the cluster configuration, y
 kubeadm join 192.168.10.4:6443 --token 3ne5op.qd57ts8uc2356ju5 --discovery-token-ca-cert-hash sha256:83b249d24ded19db1c937a73341142beb86afd4c8aea2468a3c7e7b1b80b6b40
 
 ```
----
-### Accessing Your Cluster
 
-> To start using your cluster, you need to run the following as a regular user:
 
-```
-mkdir -p $HOME/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-sudo chown $(id -u):$(id -g) $HOME/.kube/config
-```
-
-> Note: CoreDNS will always remain pending until the pod network is up. It essentially has no network to exist on until then
----
-### Pod Network Setup
-
-Deploy yaml file for your pod network
-```
-kubectl apply -f calico.yaml
-```
----
 ### System Checks
 ------------------------------------------------------------
 > Look for the all the system pods and calico pods to change to Running. 
