@@ -24,7 +24,7 @@ openssl req -new -key admin.key -out admin.csr -subj "/CN=admin/O=admins"
 - O=developers: Group (developers)
 - CN=admin: Username (admin)
 - O=admins: Group (admins)
-
+---
 
 - 1.3 Sign Certificates with Kubernetes CA
 - Find your Kubernetes CA files:  
