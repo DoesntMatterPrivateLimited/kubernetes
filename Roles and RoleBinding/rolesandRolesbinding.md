@@ -2,6 +2,7 @@
 
 **Step 1: Create User Certificates**
 - Kubernetes uses client certificates for authentication. You need to create certificates for dev and admin.
+
 - 1.1 Create Private Keys for Users
 - Run the following commands on the Kubernetes master node:
 
@@ -12,6 +13,7 @@ cd $HOME/k8s-users
 openssl genrsa -out dev.key 2048
 openssl genrsa -out admin.key 2048
 ```
+
 - 1.2 Create Certificate Signing Requests (CSRs)
 
 ```
@@ -22,6 +24,7 @@ openssl req -new -key admin.key -out admin.csr -subj "/CN=admin/O=admins"
 - O=developers: Group (developers)
 - CN=admin: Username (admin)
 - O=admins: Group (admins)
+
 
 - 1.3 Sign Certificates with Kubernetes CA
 - Find your Kubernetes CA files:  
@@ -40,6 +43,7 @@ sudo openssl x509 -req -in admin.csr -CA /etc/kubernetes/pki/ca.crt -CAkey /etc/
 **Step 2: Configure Kubeconfig for Users**
 
 - Now, configure kubectl access for these users.
+
 - 2.1 Add User to Kubeconfig
 
 ```
