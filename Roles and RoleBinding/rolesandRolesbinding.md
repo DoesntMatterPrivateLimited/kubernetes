@@ -1,4 +1,4 @@
-**Here's a detailed step-by-step guide to simulate Roles and RoleBindings in your kubeadm Kubernetes setup by creating dev and admin users.**
+**Here's a detailed step-by-step guide to simulate Roles and RoleBindings in your kubeadm Kubernetes setup by creating `dev` and `admin` users.**
 
 **Step 1: Create User Certificates**
 - Kubernetes uses client certificates for authentication. You need to create certificates for dev and admin.
